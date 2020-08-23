@@ -6,38 +6,155 @@
 */
 
 
+// for header section
 document.getElementById('header').addEventListener('swiped-up', function (e) {
-  document.getElementById('aboutbuttona').click();
+  if ($('#homebutton').hasClass('active')) {
+    document.getElementById('aboutbuttona').click();
+  }
 });
 document.getElementById('header').addEventListener('wheel', function (event) {
-  if (checkScrollDirectionIsUp(event)) {
-    console.log('UP');
-  } else {
-    console.log('Down');
-    document.getElementById('aboutbuttona').click();
+  if ($('#homebutton').hasClass('active')) {
+    if (checkScrollDirectionIsUp(event)) {
+      console.log('UP');
+    } else {
+      console.log('Down', 'about');
+      document.getElementById('aboutbuttona').click();
+    }
   }
 });
 
 
 // for about section
 document.getElementById('about').addEventListener('swiped-up', function (e) {
-  console.log('UP');
-  if($(window).scrollTop() + $(window).height() > $(document).height() - 1){
-    console.log('ok')
-    document.getElementById('servicesbuttona').click();
-      }
+  if ($('#aboutbutton').hasClass('active')) {
+    console.log('UP');
+    if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
+      console.log('ok')
+      document.getElementById('servicesbuttona').click();
+    }
+  }
+});
+document.getElementById('about').addEventListener('swiped-down', function (e) {
+  if ($('#aboutbutton').hasClass('active')) {
+    console.log('down');
+    if ($(window).scrollTop() < 1) {
+      document.getElementById('homebuttona').click();
+    }
+  }
 });
 document.getElementById('about').addEventListener('wheel', function (event) {
-  if (checkScrollDirectionIsUp(event)) {
-    console.log('UP');
-  } else {
-    console.log('Down');
-  }
-  if($(window).scrollTop() + $(window).height() > $(document).height() - 1){
-    document.getElementById('servicesbuttona').click();
-    console.log('ok')
+  if ($('#aboutbutton').hasClass('active')) {
+    if (checkScrollDirectionIsUp(event)) {
+      console.log('UP');
+      if ($(window).scrollTop() < 1) {
+        document.getElementById('homebuttona').click();
+      }
+    } else {
+      console.log('Down');
+      if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
+        document.getElementById('servicesbuttona').click();
+        console.log('ok')
+      }
+    }
   }
 });
+
+
+// for services section
+document.getElementById('services').addEventListener('swiped-up', function (e) {
+  if ($('#servicesbutton').hasClass('active')) {
+    console.log('UP');
+    if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
+      console.log('ok')
+      document.getElementById('projectsbuttona').click();
+    }
+  }
+});
+document.getElementById('services').addEventListener('swiped-down', function (e) {
+  if ($('#servicesbutton').hasClass('active')) {
+    console.log('down');
+    if ($(window).scrollTop() < 1) {
+      document.getElementById('aboutbuttona').click();
+    }
+  }
+});
+document.getElementById('services').addEventListener('wheel', function (event) {
+  if ($('#servicesbutton').hasClass('active')) {
+    if (checkScrollDirectionIsUp(event)) {
+      console.log('UP');
+      if ($(window).scrollTop() < 1) {
+        document.getElementById('aboutbuttona').click();
+      }
+    } else {
+      console.log('Down');
+      if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
+        document.getElementById('projectsbuttona').click();
+        console.log('ok')
+      }
+    }
+  }
+});
+
+
+// for projects section
+document.getElementById('portfolio').addEventListener('swiped-up', function (e) {
+  if ($('#projectsbutton').hasClass('active')) {
+    console.log('UP');
+    if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
+      console.log('ok')
+      document.getElementById('contactbuttona').click();
+    }
+  }
+});
+document.getElementById('portfolio').addEventListener('swiped-down', function (e) {
+  if ($('#projectsbutton').hasClass('active')) {
+    console.log('down');
+    if ($(window).scrollTop() < 1) {
+      document.getElementById('servicesbuttona').click();
+    }
+  }
+});
+document.getElementById('portfolio').addEventListener('wheel', function (event) {
+  if ($('#projectsbutton').hasClass('active')) {
+    if (checkScrollDirectionIsUp(event)) {
+      console.log('UP');
+      console.log($(window).scrollTop())
+      if ($(window).scrollTop() < 1) {
+        document.getElementById('servicesbuttona').click();
+      }
+    } else {
+      console.log('Down');
+      if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
+        document.getElementById('contactbuttona').click();
+        console.log('ok')
+      }
+    }
+  }
+});
+
+
+document.getElementById('contact').addEventListener('swiped-down', function (e) {
+  if ($('#contactbutton').hasClass('active')) {
+    console.log('down');
+    if ($(window).scrollTop() < 1) {
+      document.getElementById('projectsbuttona').click();
+    }
+  }
+});
+document.getElementById('contact').addEventListener('wheel', function (event) {
+  if ($('#contactbutton').hasClass('active')) {
+    if (checkScrollDirectionIsUp(event)) {
+      console.log('UP');
+      if ($(window).scrollTop() < 1) {
+        document.getElementById('projectsbuttona').click();
+      }
+    } else {
+      console.log('Down');
+    }
+  }
+});
+
+
 
 // global function
 function checkScrollDirectionIsUp(event) {
