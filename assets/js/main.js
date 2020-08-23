@@ -6,40 +6,38 @@
 */
 
 
-// For about section
-
-
-
-
-
-// for hme section 
-// document.getElementById('header').addEventListener('touchmove', checkScrollDirection);
-
-
 document.getElementById('header').addEventListener('swiped-up', function (e) {
-  // console.log(e.target); 
-  // the element that was swiped
-  document.getElementById('aboutbutton').click();
+  document.getElementById('aboutbuttona').click();
 });
 document.getElementById('header').addEventListener('wheel', function (event) {
   if (checkScrollDirectionIsUp(event)) {
     console.log('UP');
   } else {
     console.log('Down');
-    document.getElementById('aboutbutton').click();
+    document.getElementById('aboutbuttona').click();
   }
 });
 
 
 // for about section
-$(window).scroll(function() {
-  if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-    if($('aboutbutton').hasClass('active')){
-      console.log("near bottom!");
-    }
+document.getElementById('about').addEventListener('swiped-up', function (e) {
+  console.log('UP');
+  if($(window).scrollTop() + $(window).height() > $(document).height() - 1){
+    console.log('ok')
+    document.getElementById('servicesbuttona').click();
+      }
+});
+document.getElementById('about').addEventListener('wheel', function (event) {
+  if (checkScrollDirectionIsUp(event)) {
+    console.log('UP');
+  } else {
+    console.log('Down');
+  }
+  if($(window).scrollTop() + $(window).height() > $(document).height() - 1){
+    document.getElementById('servicesbuttona').click();
+    console.log('ok')
   }
 });
-
 
 // global function
 function checkScrollDirectionIsUp(event) {
