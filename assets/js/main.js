@@ -9,6 +9,7 @@
 // for header section
 document.getElementById('header').addEventListener('swiped-up', function (e) {
   if ($('#homebutton').hasClass('active')) {
+    $('#scrollimg').hide()
     document.getElementById('aboutbuttona').click();
   }
 });
@@ -18,6 +19,7 @@ document.getElementById('header').addEventListener('wheel', function (event) {
       console.log('UP');
     } else {
       console.log('Down', 'about');
+      $('#scrollimg').hide()
       document.getElementById('aboutbuttona').click();
     }
   }
@@ -38,6 +40,7 @@ document.getElementById('about').addEventListener('swiped-down', function (e) {
   if ($('#aboutbutton').hasClass('active')) {
     console.log('down');
     if ($(window).scrollTop() < 1) {
+      $('#scrollimg').show()
       document.getElementById('homebuttona').click();
     }
   }
@@ -47,6 +50,7 @@ document.getElementById('about').addEventListener('wheel', function (event) {
     if (checkScrollDirectionIsUp(event)) {
       console.log('UP');
       if ($(window).scrollTop() < 1) {
+        $('#scrollimg').show()
         document.getElementById('homebuttona').click();
       }
     } else {
