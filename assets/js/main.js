@@ -31,7 +31,6 @@ document.getElementById('about').addEventListener('swiped-up', function (e) {
   if ($('#aboutbutton').hasClass('active')) {
     console.log('UP');
     if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
-      console.log('ok')
       document.getElementById('servicesbuttona').click();
     }
   }
@@ -48,16 +47,13 @@ document.getElementById('about').addEventListener('swiped-down', function (e) {
 document.getElementById('about').addEventListener('wheel', function (event) {
   if ($('#aboutbutton').hasClass('active')) {
     if (checkScrollDirectionIsUp(event)) {
-      console.log('UP');
       if ($(window).scrollTop() < 1) {
         $('#scrollimg').show()
         document.getElementById('homebuttona').click();
       }
     } else {
-      console.log('Down');
       if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
-        document.getElementById('servicesbuttona').click();
-        console.log('ok')
+        document.getElementById('servicesbuttona').click();=
       }
     }
   }
