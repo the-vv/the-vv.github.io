@@ -16,9 +16,9 @@ document.getElementById('header').addEventListener('swiped-up', function (e) {
 document.getElementById('header').addEventListener('wheel', function (event) {
   if ($('#homebutton').hasClass('active')) {
     if (checkScrollDirectionIsUp(event)) {
-      console.log('UP');
+      // console.log('UP');
     } else {
-      console.log('Down', 'about');
+      // console.log('Down', 'about');
       $('#scrollimg').hide()
       document.getElementById('aboutbuttona').click();
     }
@@ -29,16 +29,16 @@ document.getElementById('header').addEventListener('wheel', function (event) {
 // for about section
 document.getElementById('about').addEventListener('swiped-up', function (e) {
   if ($('#aboutbutton').hasClass('active')) {
-    console.log('UP');
+    // console.log('UP');
     if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
-      console.log('ok')
+      // console.log('ok')
       document.getElementById('servicesbuttona').click();
     }
   }
 });
 document.getElementById('about').addEventListener('swiped-down', function (e) {
   if ($('#aboutbutton').hasClass('active')) {
-    console.log('down');
+    // console.log('down');
     if ($(window).scrollTop() < 1) {
       $('#scrollimg').show()
       document.getElementById('homebuttona').click();
@@ -48,16 +48,16 @@ document.getElementById('about').addEventListener('swiped-down', function (e) {
 document.getElementById('about').addEventListener('wheel', function (event) {
   if ($('#aboutbutton').hasClass('active')) {
     if (checkScrollDirectionIsUp(event)) {
-      console.log('UP');
+      // console.log('UP');
       if ($(window).scrollTop() < 1) {
         $('#scrollimg').show()
         document.getElementById('homebuttona').click();
       }
     } else {
-      console.log('Down');
+      // console.log('Down');
       if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
         document.getElementById('servicesbuttona').click();
-        console.log('ok')
+        // console.log('ok')
       }
     }
   }
@@ -67,16 +67,16 @@ document.getElementById('about').addEventListener('wheel', function (event) {
 // for services section
 document.getElementById('services').addEventListener('swiped-up', function (e) {
   if ($('#servicesbutton').hasClass('active')) {
-    console.log('UP');
+    // console.log('UP');
     if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
-      console.log('ok')
+      // console.log('ok')
       document.getElementById('projectsbuttona').click();
     }
   }
 });
 document.getElementById('services').addEventListener('swiped-down', function (e) {
   if ($('#servicesbutton').hasClass('active')) {
-    console.log('down');
+    // console.log('down');
     if ($(window).scrollTop() < 1) {
       document.getElementById('aboutbuttona').click();
     }
@@ -85,15 +85,15 @@ document.getElementById('services').addEventListener('swiped-down', function (e)
 document.getElementById('services').addEventListener('wheel', function (event) {
   if ($('#servicesbutton').hasClass('active')) {
     if (checkScrollDirectionIsUp(event)) {
-      console.log('UP');
+      // console.log('UP');
       if ($(window).scrollTop() < 1) {
         document.getElementById('aboutbuttona').click();
       }
     } else {
-      console.log('Down');
+      // console.log('Down');
       if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
         document.getElementById('projectsbuttona').click();
-        console.log('ok')
+        // console.log('ok')
       }
     }
   }
@@ -103,16 +103,16 @@ document.getElementById('services').addEventListener('wheel', function (event) {
 // for projects section
 document.getElementById('portfolio').addEventListener('swiped-up', function (e) {
   if ($('#projectsbutton').hasClass('active')) {
-    console.log('UP');
+    // console.log('UP');
     if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
-      console.log('ok')
+      // console.log('ok')
       document.getElementById('contactbuttona').click();
     }
   }
 });
 document.getElementById('portfolio').addEventListener('swiped-down', function (e) {
   if ($('#projectsbutton').hasClass('active')) {
-    console.log('down');
+    // console.log('down');
     if ($(window).scrollTop() < 1) {
       document.getElementById('servicesbuttona').click();
     }
@@ -121,7 +121,7 @@ document.getElementById('portfolio').addEventListener('swiped-down', function (e
 document.getElementById('portfolio').addEventListener('wheel', function (event) {
   if ($('#projectsbutton').hasClass('active')) {
     if (checkScrollDirectionIsUp(event)) {
-      console.log('UP');
+      // console.log('UP');
       console.log($(window).scrollTop())
       if ($(window).scrollTop() < 1) {
         document.getElementById('servicesbuttona').click();
@@ -130,7 +130,7 @@ document.getElementById('portfolio').addEventListener('wheel', function (event) 
       console.log('Down');
       if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
         document.getElementById('contactbuttona').click();
-        console.log('ok')
+        // console.log('ok')
       }
     }
   }
@@ -139,7 +139,7 @@ document.getElementById('portfolio').addEventListener('wheel', function (event) 
 
 document.getElementById('contact').addEventListener('swiped-down', function (e) {
   if ($('#contactbutton').hasClass('active')) {
-    console.log('down');
+    // console.log('down');
     if ($(window).scrollTop() < 1) {
       document.getElementById('projectsbuttona').click();
     }
@@ -148,12 +148,12 @@ document.getElementById('contact').addEventListener('swiped-down', function (e) 
 document.getElementById('contact').addEventListener('wheel', function (event) {
   if ($('#contactbutton').hasClass('active')) {
     if (checkScrollDirectionIsUp(event)) {
-      console.log('UP');
+      // console.log('UP');
       if ($(window).scrollTop() < 1) {
         document.getElementById('projectsbuttona').click();
       }
     } else {
-      console.log('Down');
+      // console.log('Down');
     }
   }
 });
@@ -187,8 +187,12 @@ function checkScrollDirectionIsUp(event) {
 
         if (hash == '#header') {
           $('#header').removeClass('header-top');
-          $("section").removeClass('section-show');
+          $("section").removeClass('section-show');          
+          $('#scrollimg').show()
           return;
+        }
+        else {
+          $('#scrollimg').hide()
         }
 
         if (!$('#header').hasClass('header-top')) {
@@ -212,11 +216,10 @@ function checkScrollDirectionIsUp(event) {
           $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
           $('.mobile-nav-overly').fadeOut();
         }
-
         return false;
 
       }
-    }
+    }    
   });
 
   // Activate/show sections on load with hash links
