@@ -5,6 +5,39 @@
 * License: https://bootstrapmade.com/license/
 */
 
+/*Cutom*/
+
+button.darkmode-toggle {
+  z-index: 999999;
+}
+
+.darkmode--activated em, .darkmode--activated li, .darkmode--activated p {
+  color: #fff !important;
+}
+
+.darkmode--activated h5 {
+  background-color: #000!important;
+  color: #fff !important;
+}
+
+.darkmode--activated .facts .count-box {
+  background-color: #0563bb54;
+}
+
+.darkmode--activated .facts .count-box span {
+  color: #fff !important;
+}
+
+.darkmode--activated .portfolio #portfolio-flters {
+  background-color: #0563bb54 !important;
+}
+
+.darkmode--activated .portfolio #portfolio-flters .filter-active {
+  color:#0563bbce !important
+}
+ .darkmode--activated .services .icon-box {
+   background-color: #000
+ }
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
