@@ -38,6 +38,11 @@ button.darkmode-toggle {
  .darkmode--activated .services .icon-box {
    background-color: #000
  }
+
+ .darkmode--activated #footerMe {
+   color: #000 !important
+ }
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
