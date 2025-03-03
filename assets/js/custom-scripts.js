@@ -19,3 +19,38 @@ function setAge() {
     }
     ageSpan.textContent = age;
 }
+
+const contactForm = document.getElementById('contactForm');
+const alertMessageSuccess = document.getElementById('submission-status-success');
+const alertMessageError = document.getElementById('submission-status-error');
+contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(contactForm);
+    const data = {};
+    for (let [key, value] of formData.entries()) {
+        data[key] = value;
+    }
+    // send data to server
+    fetch('https://portfolio-api.thevv.me/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.success) {
+                throw new Error(data.message);
+            }
+            alertMessageSuccess.style.display = 'block';
+            contactForm.reset();
+            alertMessageSuccess.classList.remove('hidden');
+            alertMessageError.classList.add('hidden');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alertMessageError.classList.remove('hidden');
+            alertMessageSuccess.classList.add('hidden');
+        });
+});
