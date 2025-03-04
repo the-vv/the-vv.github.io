@@ -1,5 +1,6 @@
 setAge();
 setExperience();
+setPhoneNumbers();
 
 function setExperience() {
     const experienceSpan = document.getElementById('thevv_experience');
@@ -18,6 +19,16 @@ function setAge() {
         age--;
     }
     ageSpan.textContent = age;
+}
+
+function setPhoneNumbers() {
+    const phoneNumbers = document.querySelectorAll('.myPhoneNo');
+    phoneNumbers.forEach(phoneNumber => {
+        let part1 = "+91 ";
+        let part2 = "96051";
+        let part3 = "45050";
+        phoneNumber.textContent = part1 + part2 + part3;
+    });
 }
 
 const contactForm = document.getElementById('contactForm');
